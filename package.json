@@ -1,0 +1,16 @@
+{
+  "name": "x-firebird",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "firebird": "^0.1.2",
+    "segfault-handler": "^1.0.1",
+    "yargs": "^13.2.2"
+  }
+}

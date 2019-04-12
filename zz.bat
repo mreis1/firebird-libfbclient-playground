@@ -1,0 +1,2 @@
+set mypath = %cd%
+pause;
