@@ -55,6 +55,14 @@ if (c == 0) {
 	})
 }
 
+
+// ------------------------------------------------------------------
+let codeSampleId = {
+	'8': 'ROLLBACK_ASYNC',
+	'9': 'ROLLBACK_SYNC'
+}
+// ------------------------------------------------------------------
+
 console.log('Running ', c)
 
 const exitDelay = (code) => {
@@ -128,7 +136,7 @@ if (c == 3) {
 
 
 
-if (c == 4 || c==5) {
+if (c == 4 || c==5 || c == 8 || c == 9) {
 	/* Sample 2: Async commit doesn't "commit"....*/
 	console.log('Sample3: Read data from stored procedure')
 	let con = createConnection();
@@ -173,6 +181,22 @@ if (c == 4 || c==5) {
 					} else if (c === 5){
 						console.log('Request commit sync')
 						con.commitSync();	
+						exitDelay();
+					} else if (c == 8){
+						console.log('Request rollback async')
+						try {
+							con.rollback((err) => {
+								console.log('rollback async ok!')
+								console.log('inTransaction ' + con.inTransaction)
+							});
+						}  catch (err) {
+							console.log('Failed to con.commit()');
+						}
+						console.log('This will never run')
+						exitDelay();
+					} else if (c === 9){
+						console.log('Request rollback sync')
+						con.rollbackSync();
 						exitDelay();
 					}
 					
@@ -287,6 +311,9 @@ if (c == 7) {
 	})
 
 }
+
+
+
 
 
 
