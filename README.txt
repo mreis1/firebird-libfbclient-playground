@@ -1,0 +1,1 @@
+This sample uses the following env variables FB_SERVER and FB_PASSWORD
